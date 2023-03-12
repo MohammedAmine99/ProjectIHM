@@ -10,7 +10,7 @@ public class MainGamePanel extends JPanel implements ActionListener {
 
     private int WIDTH;
     private int HEIGHT;
-    private Image backgroundImg = new ImageIcon("C:/Users/PC/Documents/NetBeansProjects/JHangman1/src/img/background3.jpg").getImage();
+    private Image backgroundImg = new ImageIcon("C:/Users/PC/Documents/NetBeansProjects/JHangman1/src/img/Background.jpg").getImage();
     private Image[] gallows = new Image[7];
     private NewButton newButton;
     private BackButton backButton;
@@ -48,6 +48,7 @@ public class MainGamePanel extends JPanel implements ActionListener {
         String newButtonText = "NEW";
         int newButtonY = 10;
         this.newButton = new NewButton(newButtonText, buttonX, newButtonY, buttonWidth, buttonHeight);
+         newButton.setBackground(new Color(4, 139, 154));
        
         this.newButton.addActionListener(this);
 
@@ -55,6 +56,7 @@ public class MainGamePanel extends JPanel implements ActionListener {
         int backButtonY = newButtonY + buttonHeight + 10;
         this.backButton = new BackButton(backButtonText, buttonX, backButtonY, buttonWidth, buttonHeight, container, cardLayout);
         this.backButton.addActionListener(this);
+         backButton.setBackground(new Color(4, 139, 154));
 
         JPanel keyboard = new JPanel();
         int keyboardWidth = this.WIDTH - 20;
@@ -246,11 +248,11 @@ public class MainGamePanel extends JPanel implements ActionListener {
 
         if (letterInWord) {
             this.updateLetters(qwertyButton.getValue());
-            qwertyButton.setBackground(Color.green);
+            qwertyButton.setBackground(new Color(24, 57, 30));    //couleur correcte
         }
         else {
             this.numOfGuesses--;
-            qwertyButton.setBackground(Color.red);
+            qwertyButton.setBackground(new Color(175, 175, 175));                  //color fausse
         }
         qwertyButton.setEnabled(false);
         repaint();
